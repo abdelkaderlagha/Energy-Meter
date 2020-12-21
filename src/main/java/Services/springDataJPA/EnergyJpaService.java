@@ -23,7 +23,7 @@ public class EnergyJpaService implements EnergyService {
         energyRepository.findAll().forEach(data::add);
         return data;
     }
-
+//ssss
     @Override
     public Energy findById(String s) {
         return energyRepository.findById(s).orElse(null);
