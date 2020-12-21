@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Data Endpoint Dashboard</title>
 </head>
 <body>
+<h2>Energy data</h2>
+<p>Averge energy consemption: <p th:text="${avg}"></p> </p>
+
+
+<table id="vets">
+    <thead>
+    <tr>
+        <th style="width: 150px;" >Id</th>
+        <th style="width: 200px;" >Device SN</th>
+        <th style="width: 200px;" >Energy</th>
+        <th style="width: 120px">Timestamp</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="e : ${data}">
+        <td th:text="${e?.id}">null</td>
+        <td th:text="${e?.deviceSn}">null</td>
+        <td th:text="${e?.energy}">null</td>
+        <td th:text="${e?.timestamp}">null</td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
