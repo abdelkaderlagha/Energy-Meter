@@ -5,7 +5,9 @@ import gadour.springboot.energy.domain.Energy;
 import org.springframework.stereotype.Service;
 import gadour.springboot.energy.repositories.EnergyRepository;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -43,5 +45,22 @@ public class EnergyJpaService implements EnergyService {
     public void deleteById(String s) {
         energyRepository.deleteById(s);
 
+    }
+
+    @Override
+    public Double calculAVGEnegry() {
+
+        Set<Energy>data = new HashSet<>();
+        energyRepository.findAll().forEach(data::add);
+
+        List<Double> energyData = new ArrayList<>();
+
+        data.forEach(energy -> {
+            energyData.add(energy.getEnergy());
+        });
+
+        Double average = energyData.stream().mapToDouble(val -> val).average().orElse(0.0);
+
+        return average ;
     }
 }

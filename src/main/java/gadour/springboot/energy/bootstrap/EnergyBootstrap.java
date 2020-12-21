@@ -3,15 +3,11 @@ package gadour.springboot.energy.bootstrap;
 
 import gadour.springboot.energy.Services.EnergyService;
 import gadour.springboot.energy.domain.Energy;
-import gadour.springboot.energy.repositories.EnergyRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
+
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Component
 public class EnergyBootstrap implements CommandLineRunner {
