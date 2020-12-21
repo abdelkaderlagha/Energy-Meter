@@ -25,25 +25,13 @@ public class EnergyJpaService implements EnergyService {
     }
 
     @Override
-    public Energy findById(Integer  s) {
-        return energyRepository.findById(s).orElse(null);
-    }
-
-    @Override
     public Energy save(Energy object) {
         return energyRepository.save(object);
     }
 
-    @Override
-    public void delete(Energy object) {
-        energyRepository.delete(object);
-    }
 
     @Override
-    public void deleteById(Integer  s) {
-        energyRepository.deleteById(s);
-
+    public Energy findBydeviceSn(String device_sn) {
+        return energyRepository.findBydeviceSn(device_sn);
     }
-
-
 }

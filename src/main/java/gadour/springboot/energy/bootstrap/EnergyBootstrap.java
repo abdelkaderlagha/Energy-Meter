@@ -33,14 +33,14 @@ public class EnergyBootstrap implements CommandLineRunner {
         Energy v1 = new Energy();
         v1.setTimestamp(LocalDateTime.now());
         v1.setEnergy(100.0);
-        v1.setDevice_sn("#2");
+        v1.setDeviceSn("#2");
 
         energyService.save(v1);
 
         Energy v2 = new Energy();
         v2.setTimestamp(LocalDateTime.now());
         v2.setEnergy(150.0);
-        v2.setDevice_sn("#1");
+        v2.setDeviceSn("#1");
 
         energyService.save(v2);
     }
