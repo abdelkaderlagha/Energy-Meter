@@ -1,4 +1,4 @@
-package domain;
+package gadour.springboot.energy.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +19,6 @@ import java.io.Serializable;
 public class BaseEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String device_sn;
 
 }

@@ -1,4 +1,4 @@
-package Services;
+package gadour.springboot.energy.Services;
 
 import java.util.Set;
 

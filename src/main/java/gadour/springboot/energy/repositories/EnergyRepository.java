@@ -1,6 +1,6 @@
-package repositories;
+package gadour.springboot.energy.repositories;
 
-import domain.Energy;
+import gadour.springboot.energy.domain.Energy;
 import org.springframework.data.repository.CrudRepository;
 
 public interface EnergyRepository extends CrudRepository<Energy , String> {

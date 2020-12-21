@@ -1,9 +1,9 @@
-package Services.springDataJPA;
+package gadour.springboot.energy.Services.springDataJPA;
 
-import Services.EnergyService;
-import domain.Energy;
+import gadour.springboot.energy.Services.EnergyService;
+import gadour.springboot.energy.domain.Energy;
 import org.springframework.stereotype.Service;
-import repositories.EnergyRepository;
+import gadour.springboot.energy.repositories.EnergyRepository;
 
 import java.util.HashSet;
 import java.util.Set;
