@@ -19,6 +19,7 @@ import java.io.Serializable;
 public class BaseEntity implements Serializable {
 
     @Id
-    private String device_sn;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
 }

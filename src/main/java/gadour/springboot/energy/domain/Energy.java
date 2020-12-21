@@ -16,16 +16,21 @@ import java.time.LocalDateTime;
 @Table(name="energy")
 public class Energy extends BaseEntity {
 
-    public Energy (LocalDateTime timestamp , String device_sn , Double energy){
-        super(device_sn);
+    public Energy (Integer id, LocalDateTime timestamp , String device_sn , Double energy){
+        super(id);
         this.energy=energy;
+        this.device_sn=device_sn;
         this.timestamp=timestamp;
     }
 
-    public Energy (LocalDateTime timestamp , Double energy){
+    public Energy (LocalDateTime timestamp , String device_sn ,Double energy){
         this.energy=energy;
+        this.device_sn=device_sn;
         this.timestamp=timestamp;
     }
+
+    @Column(name = "device_sn")
+    private String device_sn;
 
     @Column(name = "timestamp")
     private LocalDateTime timestamp;
