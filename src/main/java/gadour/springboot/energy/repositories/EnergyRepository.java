@@ -4,7 +4,6 @@ import gadour.springboot.energy.domain.Energy;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import javax.transaction.Transactional;
 
 public interface EnergyRepository extends CrudRepository<Energy , Integer > {
 
