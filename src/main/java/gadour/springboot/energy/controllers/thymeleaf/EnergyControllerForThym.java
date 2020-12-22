@@ -1,4 +1,4 @@
-package gadour.springboot.energy.controllers;
+package gadour.springboot.energy.controllers.thymeleaf;
 
 import gadour.springboot.energy.Services.EnergyService;
 import org.springframework.stereotype.Controller;

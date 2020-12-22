@@ -1,4 +1,4 @@
-package gadour.springboot.energy.controllers;
+package gadour.springboot.energy.controllers.restController;
 
 import gadour.springboot.energy.Services.EnergyService;
 import gadour.springboot.energy.domain.Energy;
