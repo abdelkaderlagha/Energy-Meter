@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/abdelkaderlagha/Energy-Meter.svg?style=svg)](https://circleci.com/gh/abdelkaderlagha/Energy-Meter)
 # Welcome to Energy-Meter!
 
 This repo is for the application Energy Meter. Developped by: Spring Boot to make the service part / Thymeleaf to test the services / H2 Database for development / MySql database for QA. 
