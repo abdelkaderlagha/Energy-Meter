@@ -7,12 +7,10 @@ import javax.validation.Valid;
 import gadour.springboot.energy.repositories.EnergyRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.util.HashMap;
-import java.util.Map;
+
 import java.util.Set;
 
 @RestController
@@ -21,10 +19,9 @@ import java.util.Set;
 public class EnergyController {
 
     private final EnergyService energyService;
-    private final EnergyRepository energyRepository;
-    public EnergyController(EnergyService energyService, EnergyRepository energyRepository) {
+
+    public EnergyController(EnergyService energyService) {
         this.energyService = energyService;
-        this.energyRepository = energyRepository;
     }
 
     @ApiOperation("Get all data")
@@ -48,7 +45,7 @@ public class EnergyController {
     @ApiOperation("Get averge")
     @GetMapping(value="/avg")
     public Double getAvg() throws Exception{
-        return energyRepository.avg();
+        return energyService.avg();
     }
 
 

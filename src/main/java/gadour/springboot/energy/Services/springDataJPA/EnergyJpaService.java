@@ -34,4 +34,9 @@ public class EnergyJpaService implements EnergyService {
     public Energy findBydeviceSn(String device_sn) {
         return energyRepository.findBydeviceSn(device_sn);
     }
+
+    @Override
+    public Double avg() {
+        return energyRepository.avg();
+    }
 }
