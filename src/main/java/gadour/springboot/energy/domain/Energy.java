@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -29,13 +30,16 @@ public class Energy extends BaseEntity {
         this.timestamp=timestamp;
     }
 
-    @Column(name = "device_sn")
+    @Column(name = "device_sn",unique=true)
+    @NotNull
     private String deviceSn;
 
     @Column(name = "timestamp")
+    @NotNull
     private LocalDateTime timestamp;
 
     @Column(name = "energy")
+    @NotNull
     private Double energy;
 
 }
