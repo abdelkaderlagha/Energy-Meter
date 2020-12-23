@@ -4,41 +4,66 @@ import gadour.springboot.energy.domain.Energy;
 import gadour.springboot.energy.repositories.EnergyRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
 class EnergyJpaServiceTest {
 
-    EnergyJpaService service;
 
     @Mock
     EnergyRepository repository;
 
 
+    @InjectMocks
+    EnergyJpaService service;
+
+    Energy returnEnergy;
 
     @BeforeEach
     void setUp() throws Exception {
 
-        MockitoAnnotations.initMocks(this);
+        returnEnergy = Energy.builder().id(1).energy(10.0).device_sn("#1").timestamp(LocalDateTime.now()).build();
 
-        service = new EnergyJpaService(repository);
     }
 
     @Test
     void findAll() throws Exception{
 
-        Energy energy = new Energy();
-        HashSet data = new HashSet();
-        data.add(energy);
+        Set<Energy> returnEnergySet = new HashSet<>();
+        returnEnergySet.add(Energy.builder().id(1).build());
+        returnEnergySet.add(Energy.builder().id(2).build());
 
-        when(service.findAll()).thenReturn(data);
+        when(repository.findAll()).thenReturn(returnEnergySet);
 
-        assertEquals(data.size(),1);
+        Set<Energy> data = service.findAll();
+
+        assertNotNull(data);
+        assertEquals(2, data.size());
 
     }
+
+    @Test
+    void save() {
+        Energy energyToSave = Energy.builder().id(1).build();
+
+        when(repository.save(any())).thenReturn(returnEnergy);
+
+        Energy savedEnergy = service.save(energyToSave);
+
+        assertNotNull(savedEnergy);
+
+        verify(repository).save(any());
+    }
+
 }
